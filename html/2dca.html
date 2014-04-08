@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cellular automata with 2-dimensinal time</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="2dca.css"/>
+  </head>
+
+  <body>
+    <div id="main-buttons">
+      <button id="show-settings" class="pure-button">Settings</button>
+    </div>
+    <div id="links">
+      <ul>
+	<li>
+	  <a href="http://github.com" target="_blanc"><img src="images/GitHub-Mark-White-32px.png" alt="Sources"/>Source</a>
+	</li>
+	<li>
+	  <a href="http://blogger.com"  target="_blanc">
+	    <img src="images/icon-info-32.png" alt="blog"/>
+	    Info
+	  </a>
+	</li>
+	<li>
+	  <a href="https://plus.google.com/u/0/116542359168957860292/posts" target="_blanc">
+	    <!-- <div>Icon made by <a href="http://www.flaticon.com/free-icon/google-plus-symbol-in-a-circle_24171" title="Icomoon">Icomoon</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a></div>
+            -->
+	    <img src="images/g+-icon-32.png" alt="Shintyakov Dmitry's google plus profile"/>
+	    Author
+	  </a>
+	</li>
+      </ul>
+    </div>
+
+    <div id="container">
+    </div>
+
+    <div id="settings">
+      <div id="settings-inner">
+	<!--<h1>Settings</h1>-->
+	<h2>Rules</h2>
+	<p>
+	  There are 256 possible <a href="http://mathworld.wolfram.com/ElementaryCellularAutomaton.html" target="_blanc" title="About elementary CAs (Wolfram site)">elementary cellular automata</a>, but this simulator only supports 128 even automata that preserve empty field. You can either enter automata code or choose one from the map.
+	</p>
+	<div class="rule-box">
+	  <h3>T<sub>1</sub> axis</h3>
+	  <p>
+	    Code: <input  type="text" id="rule1-text" title="Rule code: even number in [0..254]" class="short"></input>
+	  </p>
+	  <p id="rule1-info" class="rule-info"></p>
+	  <br/>
+	  <canvas id="rule1-select-graph" 
+		  width="128" height="64" title="Select rule 1"
+		  class="rules-graph"></canvas>
+	  <canvas id="rule1-diagram" width="128" height="64"
+		  class="rule-evolution"
+		  ></canvas>
+	</div>
+	<div class="rule-box">
+	  <h3>T<sub>2</sub> axis</h3>
+	  <p>
+	    Code: <input  type="text" id="rule2-text"  title="Rule code: even number in [0..254]" class="short"></input>
+	  </p>
+	  <p id="rule2-info" class="rule-info"></p>
+	  <br/>
+	  <canvas id="rule2-select-graph" 
+		  width="128" height="64"  
+		  title="Select rule 2"
+		  class="rules-graph"></canvas>
+	  <canvas id="rule2-diagram" width="128" height="64"
+		  class="rule-evolution"></canvas>
+	</div>
+	<h2>Initial pattern</h2>
+	<p>
+	  Use # character to indicate "ON" cells, and any other characters for "OFF". Press [Enter] to update.
+	</p>
+	<div class="initial-pattern-block">
+	  <input  type="text" id="initial-pattern-text"></input>
+	</div>
+	<h2>Simulation</h2>
+	<p>
+	  Simulate over <input type="number" id="simulation-time" class="short"></input> steps.
+	  
+	</p>
+
+	<div class="button-bar">
+	  <button id="close-settings" class="pure-button button-success">OK</button>
+	</div>
+      </div>
+    </div>
+
+    <script src="js/three.js"></script> 
+    <script src="js/Detector.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/TrackballControls.js"></script>
+    <script src="js/2dca.js"></script>
+    <script src="js/rules_compatibility_map.js"></script>
+    <script src="js/elementary_ca.js"></script>
+    <script>initApplication();</script>
+ </body>
+</html>
